@@ -3,14 +3,14 @@ const Register = () => {
   return (
     <div className="wrapper">
       <div className="form signup">
-        <header>Signup</header>
+        <header>Sign up</header>
         <form action="#">
-          <input type="text"name="name" placeholder="Full name" required />
-          <input type="email" name="email" placeholder="Email address" required />
-          <input type="password" name="password"placeholder="Password" required />
-          <input type="url" name="photourl" placeholder="photourl" required />
+          <input className="rounded" type="text"name="name" placeholder="Full name" required />
+          <input className="rounded" type="email" name="email" placeholder="Email address" required />
+          <input className="rounded" type="password" name="password"placeholder="Password" required />
+          <input className="rounded" type="url" name="photourl" placeholder="photourl" required />
          
-          <input type="submit" value="Signup" />
+          <input className="btn bg-white rounded" type="submit" value="Signup" />
         </form>
       </div>
     </div>
