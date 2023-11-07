@@ -1,12 +1,12 @@
-import { Avatar, Card } from 'flowbite-react';
+import { Avatar, Button, Card } from 'flowbite-react';
 import { useEffect, useState } from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 
 const TopServices = () => {
     const [services, setServices] = useState([]);
     const [topServices, setTopServices] = useState([]);
     // const { _id, service_image, service_name, service_description, service_provider, service_area, service_price, times_taken } = service;
-
+    const navigate = useNavigate()
 
     useEffect(() => {
         fetch('http://localhost:5000/services')
@@ -24,11 +24,11 @@ const TopServices = () => {
 
     return (
         <div>
-            <h2 className='text-3xl font-bold text-center p-6 my-7 '> Popular Services</h2>
+            <h2 className=' text-3xl font-bold text-center p-6 my-7 '> Popular Services</h2>
             <div className='grid grid-cols-1 md:grid-cols-2 gap-4 container mx-auto lg:ml-5'>
                 {topServices.map((service) => (
                     <div key={service._id}>
-                        <Card className="" imgSrc={service.service_image} horizontal>
+                        <Card  className="cursor-pointer" imgSrc={service.service_image} horizontal>
                         <h5 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
                         {service.service_name}
                         </h5>
@@ -49,12 +49,24 @@ const TopServices = () => {
                         
 </p>                            </div>
                             </Avatar>
-                        <button>View Details</button>
+                        {/* <button>View Details</button> */}
+                        <Button outline gradientDuoTone="" onClick={() => navigate(`/services/${service._id}`)}>
+                            View Details
+                           </Button>
+
                         </Card>
                     </div>
                 ))}
             </div>
-            <NavLink to='/services' >View All</NavLink>
+            {/* <NavLink to='/services' className={} >View All</NavLink> */}
+            {/* <Button gradientDuoTone="purpleToBlue">View All</Button> */}
+            <div className='flex justify-center py-6'>
+
+            <Button outline gradientDuoTone="" onClick={() => navigate(`/services`)}>
+                            View All
+                           </Button>
+            </div>
+
         </div>
     );
 };

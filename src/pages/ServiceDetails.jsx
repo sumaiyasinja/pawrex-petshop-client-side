@@ -1,8 +1,8 @@
-import { Badge } from 'flowbite-react';
+import { Badge, Button } from 'flowbite-react';
 import { useLoaderData } from 'react-router-dom';
 import { HiCheck,  } from 'react-icons/hi';
 'use client';
-
+import {IoMdCart} from 'react-icons/io';
 import { Avatar } from 'flowbite-react';
 
 
@@ -41,8 +41,13 @@ const ServiceDetails = () => {
         </div>
 
     </div>
+    <IoMdCart className='hidden'></IoMdCart> 
+      <Button gradientDuoTone="tealToLime" className="btn btn-primary m-4 font-simibold"> Add to cart</Button>
+      
+  
 
-      <button className="btn btn-primary">Book Now</button>
+    
+
     </div>
   </div>
 </div>
@@ -66,20 +71,6 @@ const ServiceDetails = () => {
   
 </div>
 
-
-
-     
-
-    
-
-
-    {/* <h2 className='container mx-auto '>Provider</h2>
-    <Avatar img={service_provider.image} rounded>
-      <div className="space-y-1 font-medium dark:text-white">
-      <p className="py-2">{service_provider.name}</p>
-        <div className="text-sm text-gray-500 dark:text-gray-400">Joined in August 2014</div>
-      </div>
-    </Avatar> */}
   
         </div>
     )

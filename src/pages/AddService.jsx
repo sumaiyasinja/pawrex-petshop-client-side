@@ -52,7 +52,7 @@ const AddService = () => {
   };
 
   return (
-    <section className="bg-slate-300 dark:bg-gray-900 pt-14">
+    <section className="bg-base-200 dark:bg-gray-900 pt-14 container mx-auto rounded-xl py-3">
       <Toaster />
       <div className="py-8 px-4 mx-auto max-w-2xl lg:py-6">
         <h2 className="mb-4 text-4xl text-slate-800 font-bold  dark:text-white py-2">
