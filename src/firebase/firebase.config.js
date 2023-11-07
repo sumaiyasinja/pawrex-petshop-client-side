@@ -1,4 +1,6 @@
 import { initializeApp } from "firebase/app";
+import { getAuth } from "firebase/auth";
+
 
 
 const firebaseConfig = {
@@ -8,7 +10,11 @@ const firebaseConfig = {
     storageBucket: import.meta.env.VITE_storageBucket,
     messagingSenderId: import.meta.env.VITE_messagingSenderId,
     appId: import.meta.env.VITE_appId,
+
+    
 };
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
+ 
+ export const auth = getAuth(app); 

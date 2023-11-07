@@ -11,6 +11,12 @@
   font-family: "Poppins",
     sans-serif;
 }
+
+.move-left {
+  transform: translateX(-500px);
+  transition: transform 1s; 
+}
+
 .wrapper {
   min-height: 100vh;
   display: flex;
