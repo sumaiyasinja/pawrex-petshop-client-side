@@ -102,7 +102,7 @@ const Navbar = () => {
             </ul>
           </div>
           {
-            user?         <>
+            user &&    user?.photoURL ?     <>
                       <div className="flex items-center gap-2 md:order-2">
                       <p>{user?.displayName}</p>
             <button type="button" 

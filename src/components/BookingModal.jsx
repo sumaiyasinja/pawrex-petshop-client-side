@@ -3,8 +3,8 @@
 
 import axios from 'axios';
 import { Button, Checkbox, Label, Modal, TextInput } from 'flowbite-react';
-import { useContext, useRef, useState } from 'react';
-import toast from 'react-hot-toast';
+import { useContext } from 'react';
+import toast, { Toaster } from 'react-hot-toast';
 import { AuthContext } from '../provider/AuthProvider';
 import myBooking from './../pages/myBooking';
 
@@ -37,6 +37,19 @@ function BookingModal({ service,setOpenModal,openModal }) {
 
     console.log("myBooking:",newBooking);
 
+    axios.post('http://localhost:5000/bookings', newBooking)
+    .then(data => {
+      console.log(data);
+      if(data.data.acknowledged){
+        form.reset();
+        toast.success('Service booked successfully')
+        
+      }
+    })
+    .catch( error => {
+      console.log(error);
+      toast.error("Failed booking",error.message)
+    });
     
     // axios.put(`http://localhost:5000/services/${_id}`, newBooking)
     // .then(data => {
@@ -54,11 +67,12 @@ function BookingModal({ service,setOpenModal,openModal }) {
 
   return (
     <div className='container mx-auto '>
+      <Toaster></Toaster>
       <Modal show={openModal} size="md" popup onClose={() => setOpenModal(false)} >
         <Modal.Header  className=''/>
         <Modal.Body className='bg-[]'>
     <img className='rounded-2xl pb-2' src= {service?.service_image}
- alt="" />
+ alt="service img" />
         <form className='' onSubmit={handleAddBooking}>
           <div className="grid gap-4 sm:grid-cols-2 sm:gap-6">
             <div className="sm:col-span-2">
@@ -70,7 +84,7 @@ function BookingModal({ service,setOpenModal,openModal }) {
                 type="text"
                 name="service_name"
                 id="service_name"
-                className="bg-base-200 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                className="bg-base-200 border border-gray-300 cursor-not-allowed text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
                 placeholder={service?.service_name}
                 disabled
                 readOnly
@@ -86,7 +100,7 @@ function BookingModal({ service,setOpenModal,openModal }) {
                 type="text"
                 name="service_price"
                 id="service_price"
-                className="bg-base-200 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                className="bg-base-200 cursor-not-allowed border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
                 placeholder={service?.service_price}
                 readOnly
                 disabled
@@ -104,7 +118,7 @@ function BookingModal({ service,setOpenModal,openModal }) {
                 type="text"
                 name="provider"
                 id="service_price"
-                className="bg-base-200 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                className="bg-base-200 border cursor-not-allowed border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
                 placeholder={service?.service_provider?.name}
                 readOnly
                 disabled
@@ -114,6 +128,7 @@ function BookingModal({ service,setOpenModal,openModal }) {
             
        
           </div>
+          {/* alowed */}
             <div className="sm:col-span-2">
                 <label htmlFor="service_price" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
                 Please Pick a Date
@@ -123,9 +138,10 @@ function BookingModal({ service,setOpenModal,openModal }) {
                     type="date"
                     name="date"
                     id="date"
-                    className="bg-lime-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                    className="bg-lime-50 cursor-pointer  border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
                     placeholder="Service Taking Date"
                     required
+                    
                 />
                 </div>
             <div className="sm:col-span-2">

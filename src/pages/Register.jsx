@@ -51,7 +51,7 @@ const Register = () => {
   };
 
   return (
-    <div>
+    <div className="container mx-auto flex items-center justify-center">
       <Toaster />
       <div className="wrapper">
         <div className="form signup">
@@ -62,7 +62,7 @@ const Register = () => {
             <input className="rounded" type="password" name="password" placeholder="Password" required />
             <input className="rounded" type="url" name="photoUrl" placeholder="Photo URL" required /> 
             <p>
-              Already have an account? <Link to="/login">Login</Link>
+              Already have an account? <Link to="/login" className="text-white cursor-pointer">Login</Link>
             </p>
             <input className="btn bg-white rounded" type="submit" value="Register" />
           </form>

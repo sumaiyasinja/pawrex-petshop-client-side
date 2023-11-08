@@ -36,7 +36,7 @@ const Login = () => {
   };
 
   return (
-    <div>
+    <div className="container mx-auto flex items-center justify-center">
       <Toaster
         position="top-right"
         toastOptions={{
@@ -63,28 +63,31 @@ const Login = () => {
               <div className="mb-2 block">
                 <Label htmlFor="email4" value="Your email" />
               </div>
-              <TextInput id="email4" name="email" type="email" icon={HiMail} rightIcon={HiMail} placeholder="name@address.com" required />
+              <TextInput id="email4" name="email" type="email" icon={HiMail}  placeholder="name@address.com" required />
             </div>
             <div className="max-w-md">
               <div className="mb-2 block">
                 <Label htmlFor="password2" value="Your password" />
               </div>
-            <TextInput  type="password" rightIcon={HiMail} id="password4" name="password" placeholder="Password" required  />
-            <TextInput id="email4" type="email"  rightIcon={HiMail} placeholder="name@flowbite.com" required />
+            <TextInput  type="password"  id="password4" name="password" placeholder="Password" required  />
+            {/* <TextInput id="email4" type="email"  rightIcon={HiMail} placeholder="name@flowbite.com" required /> */}
 
               {/* <TextInput id="password"  name="password"  rightIcon={HiMail} placeholder="password" required /> */}
             </div>
 
             {/* <input type="email" name="email" placeholder="Email address" required /> */}
-            <div onClick={handleGoogleLogin} className="flex justify-center items-center gap-4 custom-btn bg-white rounded-lg text-black hover:text-teal-500">
-              <p className="text-white  font-medium text-lg ">Sign in with Google</p>
+            <div onClick={handleGoogleLogin} className="flex justify-center mt-2 items-center gap-4
+            p-4
+             custom-btn bg-white rounded-lg text-black hover:text-teal-500">
+              <p className=" font-medium text-lg ">Sign in with Google</p>
               <FcGoogle></FcGoogle>
             </div>
-            <p className="mt-2 text-white text-base text-center">
-              Do not have an account?
-              <Link to="/signup" className="text-blue-500"> Sign Up</Link>
+          
+            <p>
+            Do not have an account? <Link to="/register" className="text-white cursor-pointer">Register</Link>
             </p>
-            <input type="submit" value="Sign In" />
+            <input className="btn bg-white rounded" type="submit"  value="Log In" />
+
           </form>
         </div>
       </div>

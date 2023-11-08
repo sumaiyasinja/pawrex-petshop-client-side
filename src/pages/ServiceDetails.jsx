@@ -56,8 +56,9 @@ const ServiceDetails = () => {
     <div onClick={() => setOpenModal(true)}
     >
 
-    <IoMdCart className=''></IoMdCart> 
-      <Button gradientDuoTone="tealToLime" className="btn btn-primary m-4 font-simibold"> Add to cart</Button>
+      <Button gradientDuoTone="tealToLime" className="btn btn-primary m-4 font-simibold">    
+      <IoMdCart></IoMdCart>  <p>  </p>
+      Add to cart</Button>
     </div>
 
     </div>
@@ -72,13 +73,13 @@ const ServiceDetails = () => {
     <h1 className="text-5xl font-bold">Service Provider</h1>
 
 
-    <Avatar >
+    <div >
       <div className="space-y-1 font-medium dark:text-white">
       <p className="py-2">{service_provider.name}</p>
-        <div className="text-sm text-gray-500 dark:text-gray-400">Joined in August 2014</div>
+      <div className="text-sm text-gray-500 dark:text-gray-400">Joined in August 2014</div>
       </div>
-    <p className="text-sm text-gray-500 dark:text-gray-400">Experience Level:{service_provider.level}</p>
-    </Avatar>
+    <p className="text-sm text-gray-500 dark:text-gray-400">Experience Level: {service_provider.level}</p>
+    </div>
     </div>
   </div>
   
