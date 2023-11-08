@@ -88,6 +88,11 @@ const ServiceDetails = () => {
       <p className="text-sm text-gray-500 dark:text-gray-400">Email: {service_provider.email}</p>
       : ""
     }
+     {
+     service_area ?  
+      <p className="text-sm text-gray-500 dark:text-gray-400">Location: {service_area}</p>
+      : ""
+    }
    
     </div>
     </div>

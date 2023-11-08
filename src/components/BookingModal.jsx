@@ -15,22 +15,22 @@ function BookingModal({ service,setOpenModal,openModal }) {
     event.preventDefault();
 
     const form = event.target;
-
+    const status = 'Pending';
     const service_name = form.service_name.value;
-    const service_price = form.service_price.value; 
+    const service_price = service.service_price; 
     const service_image = service?.service_image; 
     const date = form.date.value;
-    const provider = form.provider.value;
+    const provider = service.service_provider
     const BookedBy =  user.email;
      
-
     const newBooking = {
       service_name,
       service_image,
       service_price,
       date,
       BookedBy,
-      provider
+      provider,
+      status
     };
    
 
@@ -42,6 +42,7 @@ function BookingModal({ service,setOpenModal,openModal }) {
       if(data.data.acknowledged){
         form.reset();
         toast.success('Service booked successfully')
+        setOpenModal(false)
         
       }
     })
@@ -90,27 +91,23 @@ function BookingModal({ service,setOpenModal,openModal }) {
                 readOnly
               />
             </div>
-            
             <div className="sm:col-span-2">
-              <label htmlFor="service_price" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
-                Price
+              <label htmlFor="Price" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+              Price
               </label>
-                       
               <input
-            value={service?.service_price}
-            type="text"
-            name="service_price"
-            id="service_price"
-            className="bg-base-200 cursor-not-allowed border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
-            placeholder={service?.service_price}
-            readOnly
-            disabled
-          />
-
+              value={service?.service_price}
+                type="text"
+                name="service_price"
+                id="service_price"
+                className="bg-base-200 border border-gray-300 cursor-not-allowed text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                placeholder={service?.service_price}
+                disabled
+                readOnly
+              />
             </div>
-
-
             
+                 
             <div className="sm:col-span-2">
               <label htmlFor="service_price" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
                 Provider
