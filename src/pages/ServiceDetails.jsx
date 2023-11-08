@@ -3,7 +3,6 @@ import { useLoaderData } from 'react-router-dom';
 import { HiCheck,  } from 'react-icons/hi';
 'use client';
 import {IoMdCart} from 'react-icons/io';
-import { Avatar } from 'flowbite-react';
 import { useState } from 'react';
 import BookingModal from '../components/BookingModal';
 
@@ -28,7 +27,7 @@ const ServiceDetails = () => {
                 <img src="https://i.ibb.co/L1SjQ2t/vet-min.webp" alt="" />
             </div>
 <div className=" min-h-screen bg-base-200 container mx-auto pt-20">
-  <div className="hero-content justify-around  flex-col lg:flex-row-reverse">
+  <div className="hero-content justify-around flex-col lg:flex-row-reverse">
 
     <img src={service_image} className="max-w-sm shadow-2xl border-[15px] rounded-lg  border-solid border-white" />
     <div>
@@ -48,7 +47,7 @@ const ServiceDetails = () => {
         <div className="flex items-center gap-2">
 
         <Badge color="purple" icon={HiCheck} />
-      <p className="py-2">Time Taken: {times_taken}</p>
+      <p className="py-2">Sells: {times_taken} times</p>
         </div>
 
     </div>
@@ -78,11 +77,27 @@ const ServiceDetails = () => {
       <p className="py-2">{service_provider.name}</p>
       <div className="text-sm text-gray-500 dark:text-gray-400">Joined in August 2014</div>
       </div>
-    <p className="text-sm text-gray-500 dark:text-gray-400">Experience Level: {service_provider.level}</p>
+    <p className="text-sm text-gray-500 dark:text-gray-400">Experience Level : 
+    {
+      service_provider.level ?  service_provider.level : " Not Available"
+    }
+     </p>
+
+     {
+      service_provider.email ?  
+      <p className="text-sm text-gray-500 dark:text-gray-400">Email: {service_provider.email}</p>
+      : ""
+    }
+   
     </div>
     </div>
   </div>
   
+     <p className="text-sm text-gray-500 text-center dark:text-gray-400">
+     Thanks for staying with Pawrex
+
+      </p>
+
 </div>
 
   

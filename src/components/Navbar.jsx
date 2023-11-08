@@ -25,25 +25,21 @@ const Navbar = () => {
   const NavLinks = (
     <>
       <li>
-        <NavLink to='/' className="bg-slate-200 flex gap-5 py-2 pl-3 pr-4 hover-bg-blue-400 md-bg-transparent md-text-blue-700 md-p-0 md-dark-text-blue-500" aria-current="page">
+        <NavLink to='/' className="bg-slate-200 flex gap-5 py-2 pl-3 pr-4 hover:bg-blue-400 md-bg-transparent md-text-blue-700 md-p-0 md-dark-text-blue-500" aria-current="page">
           Home
         </NavLink>
       </li>
       <li>
-        <NavLink to='/services' className="bg-slate-200 hover-bg-blue-400 block py-2 pl-3 pr-4 text-gray-900 hover-bg-gray-100 md-hover-bg-transparent md-hover-text-blue-700 md-p-0 dark-text-white md-dark-hover-text-blue-500 dark-hover-bg-gray-700 dark-hover-text-white md-dark-hover-bg-transparent dark-border-gray-700">
+        <NavLink to='/services' className="bg-slate-200 hover:bg-blue-400 block py-2 pl-3 pr-4 text-gray-900 hover-bg-gray-100 md-hover-bg-transparent md-hover-text-blue-700 md-p-0 dark-text-white md-dark-hover-text-blue-500 dark-hover-bg-gray-700 dark-hover-text-white md-dark-hover-bg-transparent dark-border-gray-700">
           Services
         </NavLink>
       </li>
-      {/* <li>
-        <NavLink to='/addService' className="bg-slate-200 hover-bg-blue-400 block py-2 pl-3 pr-4 text-gray-900 hover-bg-gray-100 md-hover-bg-transparent md-hover-text-blue-700 md-p-0 dark-text-white md-dark-hover-text-blue-500 dark-hover-bg-gray-700 dark-hover-text-white md-dark-hover-bg-transparent dark-border-gray-700">
-          Add Service
-        </NavLink>
-      </li> */}
+   
       <li>
         {user ? (
           <li>
             <button onClick={handleLogOut}
-            className="bg-slate-200 hover-bg-blue-400 block py-2 pl-3 pr-4 text-gray-900 hover-bg-gray-100 md-hover-bg-transparent md-hover-text-blue-700 md-p-0 dark-text-white md-dark-hover-text-blue-500 dark-hover-bg-gray-700 dark-hover-text-white md-dark-hover-bg-transparent dark-border-gray-700">
+            className="bg-slate-200 hover:bg-blue-400 block py-2 pl-3 pr-4 text-gray-900 hover-bg-gray-100 md-hover-bg-transparent md-hover-text-blue-700 md-p-0 dark-text-white md-dark-hover-text-blue-500 dark-hover-bg-gray-700 dark-hover-text-white md-dark-hover-bg-transparent dark-border-gray-700">
               Logout
             </button>
           </li>
@@ -64,17 +60,17 @@ const Navbar = () => {
         {/* Dropdown menu of dashboard 3 items */}
         <ul className={`${open ? "block" : "hidden"} absolute`}>
           <li>
-            <NavLink to='/my-services' className="bg-slate-200 block py-2 pl-3 pr-4 text-gray-900 hover-bg-gray-100 md-hover-bg-transparent md-hover-text-blue-700 md-p-0 dark-text-white md-dark-hover-text-blue-500 dark-hover-bg-gray-700 dark-hover-text-white md-dark-hover-bg-transparent dark-border-gray-700">
+            <NavLink to='/my-services' className="bg-slate-200 hover:bg-blue-300 block py-2 pl-3 pr-4 text-gray-900 hover-bg-gray-100 md-hover-bg-transparent md-hover-text-blue-700 md-p-0 dark-text-white md-dark-hover-text-blue-500 dark-hover-bg-gray-700 dark-hover-text-white md-dark-hover-bg-transparent dark-border-gray-700">
               My Services
-            </NavLink>git
+            </NavLink>
           </li>
           <li>
-            <NavLink to='/addService' className="bg-slate-200 block py-2 pl-3 pr-4 text-gray-900 rounded hover-bg-gray-100 md-hover-bg-transparent md-hover-text-blue-700 md-p-0 dark-text-white md-dark-hover-text-blue-500 dark-hover-bg-gray-700 dark-hover-text-white md-dark-hover-bg-transparent dark-border-gray-700">
+            <NavLink to='/addService' className="bg-slate-200 hover:bg-blue-300 block py-2 pl-3 pr-4 text-gray-900 rounded hover-bg-gray-100 md-hover-bg-transparent md-hover-text-blue-700 md-p-0 dark-text-white md-dark-hover-text-blue-500 dark-hover-bg-gray-700 dark-hover-text-white md-dark-hover-bg-transparent dark-border-gray-700">
               Add Services
             </NavLink>
           </li>
           <li>
-            <NavLink to='/my-schedules' className="bg-slate-200 block py-2 pl-3 pr-4 text-gray-900 rounded hover-bg-gray-100 md-hover-bg-transparent md-hover-text-blue-700 md-p-0 dark-text-white md-dark-hover-text-blue-500 dark-hover-bg-gray-700 dark-hover-text-white md-dark-hover-bg-transparent dark-border-gray-700">
+            <NavLink to='/my-schedules' className="bg-slate-200 hover:bg-blue-300 block py-2 pl-3 pr-4 text-gray-900 rounded hover-bg-gray-100 md-hover-bg-transparent md-hover-text-blue-700 md-p-0 dark-text-white md-dark-hover-text-blue-500 dark-hover-bg-gray-700 dark-hover-text-white md-dark-hover-bg-transparent dark-border-gray-700">
               My Schedules
             </NavLink>
           </li>
