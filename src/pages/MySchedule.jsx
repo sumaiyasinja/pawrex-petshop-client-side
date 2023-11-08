@@ -16,7 +16,7 @@ const MySchedule = () => {
   // get my booked services
     useEffect(() => {
     axios
-      .get(`http://localhost:5000/bookings/?email=${user?.email}`)
+      .get(`https://b8a11-server-side-ri1or6uhq-sumaiyasinja.vercel.app/bookings/?email=${user?.email}`)
       .then((response) => {
         setBookingCard(response.data);
       })
@@ -28,7 +28,7 @@ const MySchedule = () => {
   // get my provided services
     useEffect(() => {
     axios
-      .get(`http://localhost:5000/myservice/?email=${user?.email}`)
+      .get(`https://b8a11-server-side-ri1or6uhq-sumaiyasinja.vercel.app/myservice/?email=${user?.email}`)
       .then((response) => {
         setPendingServices(response.data);
       })
@@ -49,7 +49,7 @@ const MySchedule = () => {
 
             if (result.isConfirmed) {
               axios
-              .delete(`http://localhost:5000/bookings/${id}`)
+              .delete(`https://b8a11-server-side-ri1or6uhq-sumaiyasinja.vercel.app/bookings/${id}`)
               .then((response) => {
                 if (response.status === 200) {
                   Swal.fire("Deleted!", "", "success");

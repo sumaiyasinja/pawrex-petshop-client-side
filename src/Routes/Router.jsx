@@ -27,7 +27,7 @@ import ManageService from "../pages/ManageService";
       {
         path: "/services",
         element: <Services></Services>,
-        loader: () => fetch("http://localhost:5000/services"),
+        loader: () => fetch("https://b8a11-server-side-ri1or6uhq-sumaiyasinja.vercel.app/services"),
       },
       {
         path: "/addService",
@@ -42,22 +42,22 @@ import ManageService from "../pages/ManageService";
       {
         path: "/my-schedules",
         element: <PrivateRoutes><ManageService></ManageService></PrivateRoutes> ,
-        loader: () => fetch("http://localhost:5000/services"),
+        loader: () => fetch("https://b8a11-server-side-ri1or6uhq-sumaiyasinja.vercel.app/services"),
       },
       {
         path: `/services/:id`,
         element: <ServiceDetails></ServiceDetails>,
-        loader: ({params}) => fetch(`http://localhost:5000/services/${params.id}`),
+        loader: ({params}) => fetch(`https://b8a11-server-side-ri1or6uhq-sumaiyasinja.vercel.app/services/${params.id}`),
       },
       {
         path: `/updateBooking/:id`,
         element: <UpdateBookingModal></UpdateBookingModal>,
-        loader: ({params}) => fetch(`http://localhost:5000/bookings/${params.id}`),
+        loader: ({params}) => fetch(`https://b8a11-server-side-ri1or6uhq-sumaiyasinja.vercel.app/bookings/${params.id}`),
       },
       // {
       //   path: `/updateService/:id`,
       //   element: <UpdateService></UpdateService>,
-      //   loader: ({params}) => fetch(`http://localhost:5000/services/${params.id}`),
+      //   loader: ({params}) => fetch(`https://b8a11-server-side-ri1or6uhq-sumaiyasinja.vercel.app/services/${params.id}`),
       // },
 
       {

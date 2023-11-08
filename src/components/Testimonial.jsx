@@ -1,4 +1,6 @@
 import { useState } from 'react';
+import { motion } from "framer-motion";
+
 
 const Testimonial = () => {
   const [activePage, setActivePage] = useState('page1');
@@ -16,7 +18,23 @@ const Testimonial = () => {
         <div className="container mx-auto grid grid-cols-1 gap-8 lg:gap-20 md:px-10 md:pb-10 lg:grid-cols-2">
           <div className={`flex flex-col items-center mx-12 lg:mx-0 ${activePage === 'page1' ? 'opacity-100' : 'opacity-0'}`}>
             {/*  content for the first page here */}
-            <img src="https://source.unsplash.com/random/100x100?4" alt="" className="w-20 h-20 rounded-full dark:bg-gray-500" />
+            <motion.div
+  className="box"
+  animate={{
+    scale: [1, 2, 2, 1, 1],
+    rotate: [0, 0, 180, 180, 0],
+    borderRadius: ["0%", "0%", "50%", "50%", "0%"]
+  }}
+  transition={{
+    duration: 2,
+    ease: "easeInOut",
+    times: [0, 0.2, 0.5, 0.8, 1],
+    repeat: Infinity,
+    repeatDelay: 1
+  }}
+>
+  <img src="https://source.unsplash.com/random/100x100?4" alt="" className="w-20 h-20 rounded-full dark:bg-gray-500" />
+</motion.div>
             
             <div className=" text-center">
               <p className="px-6 py-1 text-lg italic"><blockquote className="text-gray-500 max-w-lg text-lg italic font-medium text-center">
@@ -28,8 +46,23 @@ const Testimonial = () => {
           </div>
           <div className={`flex flex-col items-center max-w-lg mx-12 lg:mx-0 ${activePage === 'page2' ? 'opacity-100' : 'opacity-0'}`}>
             {/* content for the second page here */}
-            
-            <img src="https://source.unsplash.com/random/100x100?4" alt="" className="w-20 h-20 rounded-full dark:bg-gray-500" />
+            <motion.div
+  className="box"
+  animate={{
+    scale: [1, 2, 2, 1, 1],
+    rotate: [0, 0, 180, 180, 0],
+    borderRadius: ["0%", "0%", "50%", "50%", "0%"]
+  }}
+  transition={{
+    duration: 2,
+    ease: "easeInOut",
+    times: [0, 0.2, 0.5, 0.8, 1],
+    repeat: Infinity,
+    repeatDelay: 1
+  }}
+>
+<img src="https://source.unsplash.com/random/100x100?4" alt="" className="w-20 h-20 rounded-full dark:bg-gray-500" />
+</motion.div>
             
             <div className=" text-center">
               <p className="px-6 py-1 text-lg italic"><blockquote className="text-gray-500 max-w-lg text-lg italic font-medium text-center">

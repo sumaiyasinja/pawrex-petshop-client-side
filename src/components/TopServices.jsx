@@ -9,7 +9,7 @@ const TopServices = () => {
     const navigate = useNavigate()
 
     useEffect(() => {
-        fetch('http://localhost:5000/services')
+        fetch('https://b8a11-server-side-ri1or6uhq-sumaiyasinja.vercel.app/services')
             .then(res => res.json())
             .then(data => {
                 setServices(data);

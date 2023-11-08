@@ -45,7 +45,7 @@ const UpdateService = ({ _id }) => {
     console.log(newService);
 
     
-    axios.put(`http://localhost:5000/services/${_id}`, newService)
+    axios.put(`https://b8a11-server-side-ri1or6uhq-sumaiyasinja.vercel.app/services/${_id}`, newService)
     .then(data => {
       console.log(data);
       if(data.data.acknowledged){

@@ -43,8 +43,9 @@ console.log("myBooking update:",updateBooking);
     }).then((result) => {
   
       if (result.isConfirmed) {
-    axios.put(`http://localhost:5000/bookings/${service?._id}`,updateBooking)
+    axios.put(`https://b8a11-server-side-ri1or6uhq-sumaiyasinja.vercel.app/bookings/${service?._id}`,updateBooking)
         .then((response) => {
+          
           if (response.status === 200) {
             Swal.fire("Updated!", "", "success");
             // const remaining = bookingCard.filter((booking) => booking._id !== id);
@@ -89,7 +90,7 @@ console.log("myBooking update:",updateBooking);
 
 //     console.log("myBooking:",newBooking);
 
-//     // axios.post('http://localhost:5000/bookings', newBooking)
+//     // axios.post('https://b8a11-server-side-ri1or6uhq-sumaiyasinja.vercel.app/bookings', newBooking)
 //     // .then(data => {
 //     //   console.log(data);
 //     //   if(data.data.acknowledged){
