@@ -2,7 +2,6 @@ import { useContext, useState, useEffect } from 'react';
 import { AuthContext } from '../provider/AuthProvider';
 import axios from 'axios';
 import MyBooking from './myBooking';
-import toast, { Toaster } from 'react-hot-toast';
 import Swal from 'sweetalert2';
 import MyPendingTask from '../components/MyPendingTask';
 
@@ -13,6 +12,8 @@ const MySchedule = () => {
     const [pendingServices, setPendingServices] = useState([]);
 
   console.log("my pending",pendingServices);
+
+  // get my booked services
     useEffect(() => {
     axios
       .get(`http://localhost:5000/bookings/?email=${user?.email}`)
@@ -70,7 +71,6 @@ const MySchedule = () => {
 
     return (
         <div>
-            <Toaster></Toaster>
         <h2 className='text-3xl font-bold  text-center text-teal-500'>Your Schedule</h2>
           <h2 className="text-xl font-semibold text-center text-teal-500">Your Bookings:</h2>
 
@@ -78,7 +78,11 @@ const MySchedule = () => {
         {
           bookingCard.length !==0 ?
           bookingCard.map((booking) => (
-            <MyBooking handleDelete={handleDelete} key={booking._id} booking={booking} />
+            <MyBooking 
+            handleDelete={handleDelete} 
+            key={booking._id} 
+            booking={booking}
+            />
         ))
         :
           <div className='col-span-2 flex justify-center items-center flex-col-reverse'>

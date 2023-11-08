@@ -10,6 +10,7 @@ import ServiceDetails from "../pages/ServiceDetails";
 import AddService from './../pages/AddService';
 import UpdateService from "../pages/UpdateService";
 import MySchedule from './../pages/MySchedule';
+import UpdateBookingModal from './../components/UpdateBookingModal';
 
  const router = createBrowserRouter([
   {
@@ -38,6 +39,11 @@ import MySchedule from './../pages/MySchedule';
         path: `/services/:id`,
         element: <ServiceDetails></ServiceDetails>,
         loader: ({params}) => fetch(`http://localhost:5000/services/${params.id}`),
+      },
+      {
+        path: `/updateBooking/:id`,
+        element: <UpdateBookingModal></UpdateBookingModal>,
+        loader: ({params}) => fetch(`http://localhost:5000/bookings/${params.id}`),
       },
       {
         path: `/updateService/:id`,

@@ -17,6 +17,7 @@ function BookingModal({ service,setOpenModal,openModal }) {
     const form = event.target;
     const status = 'Pending';
     const service_name = form.service_name.value;
+    const instruction = form.instruction.value;
     const service_price = service.service_price; 
     const service_image = service?.service_image; 
     const date = form.date.value;
@@ -30,7 +31,8 @@ function BookingModal({ service,setOpenModal,openModal }) {
       date,
       BookedBy,
       provider,
-      status
+      status,
+      instruction
     };
    
 
