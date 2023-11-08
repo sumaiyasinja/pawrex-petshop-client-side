@@ -2,7 +2,6 @@
 'use client';
 
 import axios from 'axios';
-import {Modal,Button } from 'flowbite-react';
 
 import Swal from 'sweetalert2';
 import { useLoaderData } from 'react-router-dom';
