@@ -20,7 +20,7 @@ function BookingModal({ service,setOpenModal,openModal }) {
     const service_price = service.service_price; 
     const service_image = service?.service_image; 
     const date = form.date.value;
-    const provider = service.service_provider
+    const provider = service.service_provider.email
     const BookedBy =  user.email;
      
     const newBooking = {
@@ -52,17 +52,7 @@ function BookingModal({ service,setOpenModal,openModal }) {
       setOpenModal(false)
     });
     
-    // axios.put(`http://localhost:5000/services/${_id}`, newBooking)
-    // .then(data => {
-    //   console.log(data);
-    //   if(data.data.acknowledged){
-    //     form.reset();
-    //     toast.success('Service updated successfully')
-    //   }else{
-    //     toast.error(data.data.message)
-    //   }
-    //   }
-    // )
+    
 
   }
 
