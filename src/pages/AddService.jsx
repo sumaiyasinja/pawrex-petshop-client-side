@@ -61,6 +61,7 @@ const AddService = () => {
 
         <form onSubmit={handleAddService}>
           <div className="grid gap-4 sm:grid-cols-2 sm:gap-6">
+            
             <div className="sm:col-span-2">
               <label htmlFor="service_name" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
                 Service Name

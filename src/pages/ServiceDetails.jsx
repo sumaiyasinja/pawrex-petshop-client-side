@@ -4,15 +4,26 @@ import { HiCheck,  } from 'react-icons/hi';
 'use client';
 import {IoMdCart} from 'react-icons/io';
 import { Avatar } from 'flowbite-react';
+import { useState } from 'react';
+import BookingModal from '../components/BookingModal';
 
 
 const ServiceDetails = () => {
     const service = useLoaderData();
     console.log(service);
     const { _id, service_image, service_name, service_description, service_provider, service_area, service_price, times_taken } = service;
+    const [openModal, setOpenModal] = useState(false);
 
     return (
         <div>
+
+{openModal && (
+        <BookingModal
+        openModal={openModal}
+        setOpenModal={setOpenModal}
+        service={service}
+        />
+      )}
             <div className='container mx-auto '>
                 <img src="https://i.ibb.co/L1SjQ2t/vet-min.webp" alt="" />
             </div>
@@ -41,14 +52,16 @@ const ServiceDetails = () => {
         </div>
 
     </div>
-    <IoMdCart className='hidden'></IoMdCart> 
-      <Button gradientDuoTone="tealToLime" className="btn btn-primary m-4 font-simibold"> Add to cart</Button>
-      
-  
 
-    
+    <div onClick={() => setOpenModal(true)}
+    >
+
+    <IoMdCart className=''></IoMdCart> 
+      <Button gradientDuoTone="tealToLime" className="btn btn-primary m-4 font-simibold"> Add to cart</Button>
+    </div>
 
     </div>
+
   </div>
 </div>
 <div className=" min-h-screen bg-base-200 container mx-auto">
