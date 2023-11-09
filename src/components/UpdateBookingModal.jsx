@@ -35,11 +35,13 @@ const handleUpdate = (event) => {
           instruction
         };
 console.log("myBooking update:",updateBooking);
+
+
     Swal.fire({
       title: "Do you want to update  the service from the cart?",
       showDenyButton: true,
-      confirmButtonText: "",
-      denyButtonText: `Don't `
+      confirmButtonText: "Update",
+      denyButtonText: `Don't Update`
     }).then((result) => {
   
       if (result.isConfirmed) {
@@ -47,9 +49,11 @@ console.log("myBooking update:",updateBooking);
         .then((response) => {
           
           if (response.status === 200) {
-            Swal.fire("Updated!", "", "success");
+            Swal.fire("Updated!", "Booking changed", "success");
             // const remaining = bookingCard.filter((booking) => booking._id !== id);
             // setBookingCard(remaining);
+            history.back();
+
           } 
           
         })

@@ -3,6 +3,8 @@ import { useNavigate } from "react-router-dom";
   
 const MyBooking = ({booking,handleDelete}) => {
   const navigate = useNavigate();
+  console.log("tsting" ,"ProviderId", typeof booking.provider);
+
  
   return (
     <div className="flex flex-col max-w-3xl p-6 space-y-4 sm:p-10 bg-gray-50 text-gray-800">

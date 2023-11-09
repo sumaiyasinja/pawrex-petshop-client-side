@@ -87,15 +87,15 @@ const Navbar = () => {
     <div>
       <Toaster></Toaster>
       {/* bg-[#000000AA] */}
-      <nav className="bg-white border-gray-200 dark:bg-gray-900">
-        <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
+      <nav className="bg-white border-gray-200 dark:bg-gray-900 sm:mb-20">
+        <div className="max-w-screen-xl flex flex-col lg:flex-wrap lg:flex-row gap-6 md:gap-9 lg:gap-2  items-center justify-between mx-auto p-4">
           <a href="/" className="flex items-center">
             <img src="https://i.ibb.co/23rnS49/Pngtree-pet-shop-logo-puppy-simple-5755006.png" className="h-20 mr-2" alt="Flowbite Logo" />
             <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">PawRex</span>
           </a>
 
 
-          <div className="items-center justify-between hidden w-full md:flex md:w-auto" id="navbar-user">
+          <div className="items-center justify-between w-full md:flex md:w-auto" id="navbar-user">
             <ul className="flex font-medium p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md-flex-row md-space-x-8 md-mt-0 md-border-0 md-bg-white dark-bg-gray-800 md-dark-bg-gray-900 dark-border-gray-700">
               {/* Navbar */}
               {NavLinks}

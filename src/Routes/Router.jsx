@@ -11,6 +11,7 @@ import MySchedule from './../pages/MySchedule';
 import UpdateBookingModal from './../components/UpdateBookingModal';
 import PrivateRoutes from "./PrivateRoutes";
 import ManageService from "../pages/ManageService";
+import UpdateService from "../pages/UpdateService";
 
  const router = createBrowserRouter([
   {
@@ -34,6 +35,10 @@ import ManageService from "../pages/ManageService";
         
       },
       {
+        path: "/manage",
+        element:<PrivateRoutes><ManageService></ManageService></PrivateRoutes>
+      },
+      {
         path: "/my-schedules",
         element: <PrivateRoutes><MySchedule></MySchedule></PrivateRoutes> 
       },
@@ -44,13 +49,18 @@ import ManageService from "../pages/ManageService";
       },
       {
         path: `/services/:id`,
-        element: <ServiceDetails></ServiceDetails>,
+        element: <PrivateRoutes><ServiceDetails></ServiceDetails></PrivateRoutes>,
         loader: ({params}) => fetch(`http://localhost:5000/services/${params.id}`),
       },
       {
         path: `/updateBooking/:id`,
-        element: <UpdateBookingModal></UpdateBookingModal>,
+        element: <PrivateRoutes><UpdateBookingModal></UpdateBookingModal></PrivateRoutes>,
         loader: ({params}) => fetch(`http://localhost:5000/bookings/${params.id}`),
+      },
+      {
+        path: `/updateService/:id`,
+        element: <PrivateRoutes><UpdateService></UpdateService></PrivateRoutes>,
+        loader: ({params}) => fetch(`http://localhost:5000/services/${params.id}`),
       },
       
 

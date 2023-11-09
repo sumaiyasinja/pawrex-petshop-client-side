@@ -26,16 +26,18 @@ const MySchedule = () => {
   }, [user?.email]);
 
   // get my provided services
-    useEffect(() => {
-    axios
-      .get(`http://localhost:5000/myservice/?email=${user?.email}`)
-      .then((response) => {
-        setPendingServices(response.data);
-      })
-      .catch((error) => {
-        console.error(error);
-      });
-  }, [user?.email]);
+  // useEffect(() => {
+  //   axios
+  //     .get(`http://localhost:5000/myservices/?email=${user?.email}`)
+  //     .then((response) => {
+  //       setPendingServices(response.data);
+  //       console.log("my provinds", response.data);
+  //     })
+  //     .catch((error) => {
+  //       console.error("Error fetching data:", error);
+  //     });
+  // }, [user?.email]);
+  
   
 // delete booking data
     const handleDelete = (id) => {
@@ -99,20 +101,23 @@ const MySchedule = () => {
         <h2 className="text-xl font-semibold text-center text-teal-500">Your Provided Services:</h2>
 
  <div className='grid grid-cols-1 md:grid-cols-2 gap-4 container mx-auto my-6'>
-        {
+        {/* {
           pendingServices.length !==0 ?
-          pendingServices.map((booking) => (
-            <MyPendingTask key={booking._id} booking={booking}></MyPendingTask>
-        ))
-        :
-          <div className='col-span-2 flex justify-center items-center flex-col-reverse'>
+          pendingServices.map(booking => (
+            // <MyPendingTask 
+            // key={booking._id} 
+            // booking={booking}></MyPendingTask>
+            ))
+            :
+            <div className='col-span-2 flex justify-center items-center flex-col-reverse'>
             <h2 className="text-xl font-semibold text-center text-lime-400">Currently you are not providing any service</h2>
         
           </div>
           
-        }
+        } */}
         
 
+          <MyPendingTask></MyPendingTask>
         </div>
     </div>
     );

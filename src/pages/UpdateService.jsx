@@ -5,6 +5,7 @@ import { useContext } from "react";
 import toast, { Toaster } from "react-hot-toast";
 import { useLoaderData } from "react-router-dom";
 import { AuthContext } from "../provider/AuthProvider";
+import Swal from "sweetalert2";
 
 const UpdateService = ({ _id }) => {
 
@@ -25,39 +26,52 @@ const UpdateService = ({ _id }) => {
     const service_image = form.service_image.value; 
     const service_area = form.service_area.value; 
     
-    const service_provider = {
-      name: user.displayName,
-      email: user.email,
-      image: user.photoURL,
-      level: "Beginner"
-    };
-
-    const newService = {
+    const updatedService = {
       service_name,
       service_description,
       service_image,
       service_price,
       times_taken,
       service_area,
-      service_provider
+    
     };
 
-    console.log(newService);
+    console.log("my rediamet",updatedService);
 
+    Swal.fire({
+      title: "Do you want to update  the service from the cart?",
+      showDenyButton: true,
+      confirmButtonText: "Update",
+      denyButtonText: `Don't Update`
+    }).then((result) => {
+  
+      if (result.isConfirmed) {
+    axios.put(`http://localhost:5000/services/${service?._id}`,
+
+    updatedService)
+        .then((response) => {
+          console.log(response.data);
+          if (response.status === 200) {
+            Swal.fire("Updated!", "service changed", "success");
+            
+            history.back();
+
+          } 
+          
+        })
+        .catch((error) => {
+          Swal.fire("Failed: " + error.message);
+        });
+      } else if (result.isDenied) {
+        Swal.fire("Changes are not applied");
+      }
+    });
+  
+
+  }
     
-    axios.put(`http://localhost:5000/services/${_id}`, newService)
-    .then(data => {
-      console.log(data);
-      if(data.data.acknowledged){
-        form.reset();
-        toast.success('Service updated successfully')
-      }else{
-        toast.error(data.data.message)
-      }
-      }
-    )
 
-  };
+  
 
   return (
     <section className="bg-base-200 dark:bg-gray-900 pt-14">

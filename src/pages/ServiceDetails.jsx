@@ -90,7 +90,7 @@ const ServiceDetails = () => {
     }
      {
      service_area ?  
-      <p className="text-sm text-gray-500 dark:text-gray-400">Location: {service_area}</p>
+      <p className="text-sm text-gray-500 dark:text-gray-400">Service Area: {service_area}</p>
       : ""
     }
    
@@ -99,8 +99,8 @@ const ServiceDetails = () => {
   </div>
   
      <p className="text-sm text-gray-500 text-center dark:text-gray-400">
-     Thanks for staying with Pawrex
-
+      More service from this provider:
+      
       </p>
 
 </div>

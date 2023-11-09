@@ -16,8 +16,15 @@ const TopServices = () => {
 
                 // Sort and set the top 4 services here
                 const sortedServices = data.sort((a, b) => b.times_taken - a.times_taken);
-                const top4Services = sortedServices.slice(0, 4);
-                setTopServices(top4Services);
+                if(sortedServices.lnegth >= 4){
+                    const top4Services = sortedServices.slice(0, 4);
+                    setTopServices(top4Services);
+
+                }
+                else{
+                    setTopServices(sortedServices);
+
+                }
             });
     }, []); 
 
@@ -25,7 +32,7 @@ const TopServices = () => {
     return (
         <div>
             <h2 className=' text-3xl font-bold text-center p-6 my-7 '> Popular Services</h2>
-            <div className='grid grid-cols-1 md:grid-cols-2 gap-4 container mx-auto lg:ml-5'>
+            <div className='grid grid-cols-1 lg:grid-cols-2 gap-4 container mx-auto lg:ml-5'>
                 {topServices.map((service) => (
                     <div key={service._id}>
                         <Card  className="cursor-pointer" imgSrc={service.service_image} horizontal>
@@ -49,7 +56,6 @@ const TopServices = () => {
                         
 </p>                            </div>
                             </Avatar>
-                        {/* <button>View Details</button> */}
                         <Button outline gradientDuoTone="" onClick={() => navigate(`/services/${service._id}`)}>
                             View Details
                            </Button>

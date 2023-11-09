@@ -10,8 +10,8 @@ const Marquie = () => {
             <Marquee>
                 { user &&
                     user ? 
-                    <div className="max-w-35rem p-8 sm:flex sm:space-x-6 text-gray-800">
-                    <div className="flex-shrink-0 w-full mb-6 h-44 sm:h-32 sm:w-32 sm:mb-0">
+                    <div className="lg:max-w-35rem p-8 sm:flex sm:space-x-6 text-gray-800">
+                    <div className="flex-shrink-0 w-full mb-6 h-44 sm:h-20 sm:w-20 sm:mb-0">
                         <img src={user?.photoURL} alt="" className="object-cover object-center w-full h-full rounded " />
                     </div>
                     <div className="flex flex-col space-y-4">
