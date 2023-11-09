@@ -3,12 +3,10 @@ import ErrorPage from './../pages/ErrorPage';
 import Root from "../pages/Root";
 import Home from './../pages/Home';
 import Register from "../pages/Register";
-// import Login from "../pages/Login";
 import Login from './../pages/Login';
 import Services from './../components/Services';
 import ServiceDetails from "../pages/ServiceDetails";
 import AddService from './../pages/AddService';
-import UpdateService from "../pages/UpdateService";
 import MySchedule from './../pages/MySchedule';
 import UpdateBookingModal from './../components/UpdateBookingModal';
 import PrivateRoutes from "./PrivateRoutes";
@@ -27,7 +25,7 @@ import ManageService from "../pages/ManageService";
       {
         path: "/services",
         element: <Services></Services>,
-        loader: () => fetch("https://b8a11-server-side-ri1or6uhq-sumaiyasinja.vercel.app/services"),
+        loader: () => fetch("http://localhost:5000/services"),
       },
       {
         path: "/addService",
@@ -42,23 +40,19 @@ import ManageService from "../pages/ManageService";
       {
         path: "/my-schedules",
         element: <PrivateRoutes><ManageService></ManageService></PrivateRoutes> ,
-        loader: () => fetch("https://b8a11-server-side-ri1or6uhq-sumaiyasinja.vercel.app/services"),
+        loader: () => fetch("http://localhost:5000/services"),
       },
       {
         path: `/services/:id`,
         element: <ServiceDetails></ServiceDetails>,
-        loader: ({params}) => fetch(`https://b8a11-server-side-ri1or6uhq-sumaiyasinja.vercel.app/services/${params.id}`),
+        loader: ({params}) => fetch(`http://localhost:5000/services/${params.id}`),
       },
       {
         path: `/updateBooking/:id`,
         element: <UpdateBookingModal></UpdateBookingModal>,
-        loader: ({params}) => fetch(`https://b8a11-server-side-ri1or6uhq-sumaiyasinja.vercel.app/bookings/${params.id}`),
+        loader: ({params}) => fetch(`http://localhost:5000/bookings/${params.id}`),
       },
-      // {
-      //   path: `/updateService/:id`,
-      //   element: <UpdateService></UpdateService>,
-      //   loader: ({params}) => fetch(`https://b8a11-server-side-ri1or6uhq-sumaiyasinja.vercel.app/services/${params.id}`),
-      // },
+      
 
       {
         path: "/login",

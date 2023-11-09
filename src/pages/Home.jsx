@@ -1,20 +1,23 @@
 
 import Banner from '../components/Banner';
+import Marquie from '../components/Marquie';
+import ReviewsSlider from '../components/ReviewsSlider';
 import ShopFAQAccordion from '../components/ShopFAQAccordion';
 import Team from '../components/Team';
 import Testimonial from '../components/Testimonial';
 import TopServices from '../components/TopServices';
-import UserDashboard from '../components/UserDashboard';
 
 const Home = () => {
     return (
         <div className='container mx-auto'>
+
+            <Marquie></Marquie>
             <Banner></Banner>
             <TopServices></TopServices>
-            <Testimonial></Testimonial>
             <Team></Team>
+            <ReviewsSlider></ReviewsSlider>
             <ShopFAQAccordion></ShopFAQAccordion>
-            <UserDashboard></UserDashboard>
+            <Testimonial></Testimonial>
         </div>
     );
 };

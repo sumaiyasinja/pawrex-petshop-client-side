@@ -1,6 +1,6 @@
 import { Avatar, Button, Card } from 'flowbite-react';
 import { useEffect, useState } from 'react';
-import { NavLink, useNavigate } from 'react-router-dom';
+import {  useNavigate } from 'react-router-dom';
 
 const TopServices = () => {
     const [services, setServices] = useState([]);
@@ -9,7 +9,7 @@ const TopServices = () => {
     const navigate = useNavigate()
 
     useEffect(() => {
-        fetch('https://b8a11-server-side-ri1or6uhq-sumaiyasinja.vercel.app/services')
+        fetch('http://localhost:5000/services')
             .then(res => res.json())
             .then(data => {
                 setServices(data);
