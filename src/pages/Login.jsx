@@ -5,12 +5,14 @@ import { HiMail } from "react-icons/hi";
 import { FcGoogle } from "react-icons/fc";
 import { Label, TextInput } from "flowbite-react";
 import { Toaster, toast } from "react-hot-toast";
+import axios from "axios";
 
 const Login = () => {
-  const { loginWithEmailAndPasword, loginWithGoogle } = useContext(AuthContext);
+  const { user,loginWithEmailAndPasword, loginWithGoogle } = useContext(AuthContext);
   const navigate = useNavigate();
   const location = useLocation();
   console.log('location object in login page: ', location);
+  
 
   const handleLogin = (e) => {
     e.preventDefault();
@@ -21,6 +23,34 @@ const Login = () => {
     loginWithEmailAndPasword(email, password)
       .then(() => {
         toast.success("Successfully logged in");
+
+        axios.post('http://localhost:5000/jwt', {
+          withCredentials: true,
+          userEmail: user?.email || '',
+        })
+          .then(response => {
+            // Handle the response
+            console.log('Response:', response.data);
+          })
+          .catch(error => {
+            // Handle errors
+            console.error('Error:', error);
+          });
+        
+//         fetch('http://localhost:5000/jwt', {
+//           method: 'POST',
+//           credentials: 'include',
+//         })
+//           .then(response => {
+//            response.json()
+//           })
+//           .then(data => {
+// console.log(data);          })
+          // .catch(error => {
+          //   // Handle errors
+          //   console.error('Error:', error);
+          // });
+
         navigate(location?.state ? location?.state : '/');
       })
       .catch(e => toast.error(e.message));

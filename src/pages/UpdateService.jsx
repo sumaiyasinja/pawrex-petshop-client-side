@@ -69,7 +69,6 @@ const UpdateService = ({ _id }) => {
   
 
   }
-    
 
   
 

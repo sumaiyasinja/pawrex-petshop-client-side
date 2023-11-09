@@ -2,12 +2,15 @@ import axios from "axios";
 import { useContext, useState, useEffect } from "react";
 import { AuthContext } from "../provider/AuthProvider";
 import { useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
+
+import { Helmet } from 'react-helmet';
 
 const ManageService = () => {
   const { user } = useContext(AuthContext);
   const [myServices, setMyServices] = useState([]);
   const navigate = useNavigate();
-
+// get
   useEffect(() => {
     axios
       .get(`http://localhost:5000/services`)
@@ -25,15 +28,49 @@ const ManageService = () => {
       });
   }, [user.email]); // Include user.email in the dependency array to re-fetch data when the user changes
 
+//   delete
+const handleDelete = (id) => {
+
+    Swal.fire({
+        title: "Do you want to delete the service from the cart?",
+        showDenyButton: true,
+        confirmButtonText: "Delete",
+        denyButtonText: `Don't Delete`
+      }).then((result) => {
+
+        if (result.isConfirmed) {
+          axios
+          .delete(`http://localhost:5000/services/${id}`)
+          .then((response) => {
+            if (response.status === 200) {
+              Swal.fire("Deleted!", "", "success");
+              const remaining = myServices.filter((booking) => booking._id !== id);
+              setMyServices(remaining);
+            } 
+            
+          })
+          .catch((error) => {
+            Swal.fire("Failed: " + error.message);
+          });
+        } else if (result.isDenied) {
+          Swal.fire("Changes are not applied");
+        }
+      });
+
+   
+  };
+
   return (
     <div>
-      <h2>Manage Your Service</h2>
+    <Helmet>
+    <title>Pawrex | Manage Your Service</title>
+  </Helmet>    
+
+      <h2 className="text-4xl text-center text-teal-500 font-bold">Manage Your Service</h2>
       {/* Display your filtered services here */}
       {myServices.map((service) => (
         <div key={service._id}>
-          {/* <p>Service Name: {service?.service_name}</p> */}
-          {/* <p>Description:</p> */}
-          {/* Add more details based on your service schema */}
+          
           <div className="flex flex-col max-w-3xl mx-auto p-6 space-y-4 sm:p-10 bg-gray-50 text-gray-800">
             <ul className="flex flex-col divide-y divide-gray-300">
               <li className="flex flex-col py-6 sm:flex-row sm:justify-between">
@@ -45,11 +82,12 @@ const ManageService = () => {
                   />
                   <div className="flex flex-col justify-between w-full pb-4">
                     <div className="flex justify-between w-full pb-2 space-x-2">
-                      <div className="space-y-1">
+                      <div className="space-y-2">
                         <h3 className="text-lg font-semibold leading-tight sm:pr-8">
                           {service.service_name}
                         </h3>
                         <p className="text-sm text-gray-600">Details:  {service?.service_description}</p>
+                        <p className="text-sm text-gray-600">Area:  {service?.service_area}</p>
                       </div>
                       <div className="text-right">
                         <p className="text-lg font-semibold">
@@ -82,6 +120,8 @@ const ManageService = () => {
                         <span>Update</span>
                       </button>
                       <button
+                                          onClick={() => handleDelete(service?._id)}
+
                         type="button"
                         className="flex items-center px-2 py-1 pl-0 space-x-1"
                       >
@@ -98,19 +138,7 @@ const ManageService = () => {
                         </svg>
                         <span>Remove</span>
                       </button>
-                      <button
-                        type="button"
-                        className="flex items-center px-2 py-1 space-x-1"
-                      >
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          viewBox="0 0 512 512"
-                          className="w-4 h-4 fill-current"
-                        >
-                          <path d="M453.122,79.012a128,128,0,0,0-181.087.068l-15.511,15.7L241.142,79.114l-.1-.1a128,128,0,0,0-181.02,0l-6.91,6.91a128,128,0,0,0,0,181.019L235.485,449.314l20.595,21.578.491-.492.533.533L276.4,450.574,460.032,266.94a128.147,128.147,0,0,0,0-181.019ZM437.4,244.313,256.571,425.146,75.738,244.313a96,96,0,0,1,0-135.764l6.911-6.91a96,96,0,0,1,135.713-.051l38.093,38.787,38.274-38.736a96,96,0,0,1,135.765,0l6.91,6.909A96.11,96.11,0,0,1,437.4,244.313Z"></path>
-                        </svg>
-                        {/* <span>{service.status}</span> */}
-                      </button>
+                     
                     </div>
                   </div>
                 </div>

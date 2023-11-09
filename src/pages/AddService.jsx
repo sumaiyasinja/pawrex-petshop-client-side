@@ -2,6 +2,7 @@ import { useContext } from "react";
 import { AuthContext } from './../provider/AuthProvider';
 import axios from "axios";
 import toast, { Toaster } from "react-hot-toast";
+import { Helmet } from "react-helmet";
 
 const AddService = () => {
   const {user} =useContext(AuthContext)
@@ -53,6 +54,10 @@ const AddService = () => {
 
   return (
     <section className="bg-base-200 dark:bg-gray-900 pt-14 container mx-auto rounded-xl py-3">
+      <Helmet>
+    <title>Pawrex |           Add a new service
+</title>
+  </Helmet> 
       <Toaster />
       <div className="py-8 px-4 mx-auto max-w-2xl lg:py-6">
         <h2 className="mb-4 text-4xl text-slate-800 font-bold  dark:text-white py-2">
