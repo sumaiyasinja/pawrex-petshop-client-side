@@ -38,7 +38,7 @@ const AddService = () => {
 
     console.log(newService);
 
-    axios.post('http://localhost:5000/services', newService)
+    axios.post('https://b8a11-server-side-iota.vercel.app/services', newService)
     .then(data => {
       console.log(data);
       if(data.data.acknowledged){

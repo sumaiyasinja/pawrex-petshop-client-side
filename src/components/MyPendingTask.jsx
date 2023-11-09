@@ -9,7 +9,7 @@ const MyPendingTask = () => {
     const [pendingServices, setPendingServices] = useState([]);
     useEffect(() => {
       axios
-        .get(`http://localhost:5000/myservices/?email=${user?.email}`)
+        .get(`https://b8a11-server-side-iota.vercel.app/myservices/?email=${user?.email}`)
         .then((response) => {
           setPendingServices(response.data);
           console.log("my provinds", response.data);

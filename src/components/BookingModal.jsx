@@ -38,7 +38,7 @@ function BookingModal({ service,setOpenModal,openModal }) {
 
     console.log("myBooking:",newBooking);
 
-    axios.post('http://localhost:5000/bookings', newBooking)
+    axios.post('https://b8a11-server-side-iota.vercel.app/bookings', newBooking)
     .then(data => {
       console.log(data);
       if(data.data.acknowledged){

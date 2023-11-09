@@ -13,7 +13,7 @@ const ManageService = () => {
 // get
   useEffect(() => {
     axios
-      .get(`http://localhost:5000/services`)
+      .get(`https://b8a11-server-side-iota.vercel.app/services`)
       .then((res) => {
         // Filter services based on user's email
         const filteredServices = res.data.filter(
@@ -40,7 +40,7 @@ const handleDelete = (id) => {
 
         if (result.isConfirmed) {
           axios
-          .delete(`http://localhost:5000/services/${id}`)
+          .delete(`https://b8a11-server-side-iota.vercel.app/services/${id}`)
           .then((response) => {
             if (response.status === 200) {
               Swal.fire("Deleted!", "", "success");

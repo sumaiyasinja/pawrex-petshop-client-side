@@ -46,7 +46,7 @@ const UpdateService = ({ _id }) => {
     }).then((result) => {
   
       if (result.isConfirmed) {
-    axios.put(`http://localhost:5000/services/${service?._id}`,
+    axios.put(`https://b8a11-server-side-iota.vercel.app/services/${service?._id}`,
 
     updatedService)
         .then((response) => {

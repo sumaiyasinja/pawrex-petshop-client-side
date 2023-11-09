@@ -26,7 +26,7 @@ import UpdateService from "../pages/UpdateService";
       {
         path: "/services",
         element: <Services></Services>,
-        loader: () => fetch("http://localhost:5000/services"),
+        loader: () => fetch("https://b8a11-server-side-iota.vercel.app/services"),
       },
       {
         path: "/addService",
@@ -45,22 +45,22 @@ import UpdateService from "../pages/UpdateService";
       {
         path: "/my-schedules",
         element: <PrivateRoutes><ManageService></ManageService></PrivateRoutes> ,
-        loader: () => fetch("http://localhost:5000/services"),
+        loader: () => fetch("https://b8a11-server-side-iota.vercel.app/services"),
       },
       {
         path: `/services/:id`,
         element: <PrivateRoutes><ServiceDetails></ServiceDetails></PrivateRoutes>,
-        loader: ({params}) => fetch(`http://localhost:5000/services/${params.id}`),
+        loader: ({params}) => fetch(`https://b8a11-server-side-iota.vercel.app/services/${params.id}`),
       },
       {
         path: `/updateBooking/:id`,
         element: <PrivateRoutes><UpdateBookingModal></UpdateBookingModal></PrivateRoutes>,
-        loader: ({params}) => fetch(`http://localhost:5000/bookings/${params.id}`),
+        loader: ({params}) => fetch(`https://b8a11-server-side-iota.vercel.app/bookings/${params.id}`),
       },
       {
         path: `/updateService/:id`,
         element: <PrivateRoutes><UpdateService></UpdateService></PrivateRoutes>,
-        loader: ({params}) => fetch(`http://localhost:5000/services/${params.id}`),
+        loader: ({params}) => fetch(`https://b8a11-server-side-iota.vercel.app/services/${params.id}`),
       },
       
 

@@ -24,7 +24,7 @@ const Login = () => {
       .then(() => {
         toast.success("Successfully logged in");
 
-        axios.post('http://localhost:5000/jwt', {
+        axios.post('https://b8a11-server-side-iota.vercel.app/jwt', {
           withCredentials: true,
           userEmail: user?.email || '',
         })
@@ -37,7 +37,7 @@ const Login = () => {
             console.error('Error:', error);
           });
         
-//         fetch('http://localhost:5000/jwt', {
+//         fetch('https://b8a11-server-side-iota.vercel.app/jwt', {
 //           method: 'POST',
 //           credentials: 'include',
 //         })
