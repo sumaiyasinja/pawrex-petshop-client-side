@@ -5,14 +5,14 @@ import { HiMail } from "react-icons/hi";
 import { FcGoogle } from "react-icons/fc";
 import { Label, TextInput } from "flowbite-react";
 import { Toaster, toast } from "react-hot-toast";
-import axios from "axios";
+// import axios from "axios";
+import { Helmet } from "react-helmet";
 
 const Login = () => {
-  const { user,loginWithEmailAndPasword, loginWithGoogle } = useContext(AuthContext);
+  const { loginWithEmailAndPasword, loginWithGoogle } = useContext(AuthContext);
   const navigate = useNavigate();
   const location = useLocation();
   console.log('location object in login page: ', location);
-  
 
   const handleLogin = (e) => {
     e.preventDefault();
@@ -24,34 +24,21 @@ const Login = () => {
       .then(() => {
         toast.success("Successfully logged in");
 
-        axios.post('https://b8a11-server-side-iota.vercel.app/jwt', {
-          withCredentials: true,
-          userEmail: user?.email || '',
-        })
-          .then(response => {
-            // Handle the response
-            console.log('Response:', response.data);
-          })
-          .catch(error => {
-            // Handle errors
-            console.error('Error:', error);
-          });
-        
-//         fetch('https://b8a11-server-side-iota.vercel.app/jwt', {
-//           method: 'POST',
-//           credentials: 'include',
-//         })
-//           .then(response => {
-//            response.json()
-//           })
-//           .then(data => {
-// console.log(data);          })
-          // .catch(error => {
-          //   // Handle errors
-          //   console.error('Error:', error);
-          // });
+        // const user = { email };
 
-        navigate(location?.state ? location?.state : '/');
+        // setting our access token
+        // axios.post('https://b8a11-server-side-iota.vercel.app/jwt', user, { withCredentials: true })
+        //   .then(res => {
+        //     console.log(res.data);
+        //     if (res.data.success) {
+        //       navigate(location?.state ? location?.state : '/');
+        //     }
+        //   })
+        //   .catch(error => {
+        //     console.error("Error getting access token:", error);
+        //     toast.error("Error getting access token");
+        //   });
+        
       })
       .catch(e => toast.error(e.message));
   };
@@ -61,12 +48,16 @@ const Login = () => {
       .then(() => {
         toast.success("Successfully logged in with Google.");
         navigate(location.state ? location.state : '/');
+        
       })
       .catch(e => toast.error(e.message));
   };
-
   return (
     <div className="container mx-auto flex items-center justify-center">
+            <Helmet>
+          <title>Pawrex | Login
+      </title>
+        </Helmet> 
       <Toaster
         position="top-right"
         toastOptions={{

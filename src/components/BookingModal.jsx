@@ -22,8 +22,9 @@ function BookingModal({ service,setOpenModal,openModal }) {
     const service_image = service?.service_image; 
     const date = form.date.value;
     const provider = service.service_provider.email
+    console.log("provider nook",provider)
     const BookedBy =  user.email;
-     
+    
     const newBooking = {
       service_name,
       service_image,

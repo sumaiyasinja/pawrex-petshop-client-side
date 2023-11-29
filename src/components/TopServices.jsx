@@ -9,24 +9,20 @@ const TopServices = () => {
     const navigate = useNavigate()
 
     useEffect(() => {
-        fetch('https://b8a11-server-side-iota.vercel.app/services')
-            .then(res => res.json())
-            .then(data => {
-                setServices(data);
-
-                // Sort and set the top 4 services here
-                const sortedServices = data.sort((a, b) => b.times_taken - a.times_taken);
-                if(sortedServices.lnegth >= 4){
+            fetch('https://b8a11-server-side-iota.vercel.app/services')
+                .then(res => res.json())
+                .then(data => {
+                    const clonedData = [...data];
+        
+                    const sortedServices = clonedData.sort((a, b) => b.times_taken - a.times_taken);
+        
                     const top4Services = sortedServices.slice(0, 4);
+        
+                    setServices(data);
                     setTopServices(top4Services);
-
-                }
-                else{
-                    setTopServices(sortedServices);
-
-                }
-            });
-    }, []); 
+                });
+        }, []);
+        
 
 
     return (

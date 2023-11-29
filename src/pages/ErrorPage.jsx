@@ -5,6 +5,8 @@ import Navbar from './../components/Navbar';
 import { useState } from 'react';
 import { GiRaceCar } from "react-icons/gi";
 import { MdPets } from "react-icons/md";
+import { Helmet } from "react-helmet";
+
 
 
 const ErrorPage = () => {
@@ -20,7 +22,11 @@ const ErrorPage = () => {
         
     }
     return (
-        <div className="container mx-auto">        
+        <div className="container mx-auto">       
+         <Helmet>
+    <title>Pawrex | Error Page
+</title>
+  </Helmet>  
         <Navbar></Navbar>
         <div className="flex flex-col items-center justify-center h-screen py-4">
             <p className="text-xl text-black fo9*/77nt-bold mb-6">Page Not Found</p>

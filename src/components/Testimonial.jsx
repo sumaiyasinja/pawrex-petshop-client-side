@@ -38,11 +38,11 @@ const Testimonial = () => {
             
             <div className=" text-center">
               <p className="px-6 py-1 text-lg italic"><blockquote className="text-gray-500 max-w-lg text-lg italic font-medium text-center">
-              DrivenWays Company has exceeded our expectations. Quality vehicles, top-notch service. Highly recommended!              </blockquote></p>
+              Pawrex Company has exceeded our expectations. Quality services, top-notch service. Highly recommended!              </blockquote></p>
             </div>
             <span className="w-12 h-1 my-2 rounded-lg bg-red-400"></span>
             <p className='text-gray-500'>Sumaiya Sinja</p>
-              <p className='text-gray-500'>CEO of DrivenWays Co.</p>
+              <p className='text-gray-500'>CEO of Pawrex Co.</p>
           </div>
           <div className={`flex flex-col items-center max-w-lg mx-12 lg:mx-0 ${activePage === 'page2' ? 'opacity-100' : 'opacity-0'}`}>
             {/* content for the second page here */}
@@ -66,12 +66,12 @@ const Testimonial = () => {
             
             <div className=" text-center">
               <p className="px-6 py-1 text-lg italic"><blockquote className="text-gray-500 max-w-lg text-lg italic font-medium text-center">
-              DrivenWays Company journey is a testament to our commitment to customer satisfaction. We've made car buying a joy!
+              Pawrex Company journey is a testament to our commitment to customer satisfaction. We've made a positive impact on a joy!
                            </blockquote></p>
             </div>
             <span className="w-12 h-1 my-2 rounded-lg bg-red-400"></span>
             <p className='text-gray-500'>Tasmiya Ahmed Hiya</p>
-              <p className='text-gray-500'>Founder of DrivenWays Co.</p>
+              <p className='text-gray-500'>Founder of Pawrex Co.</p>
             
           </div>
         </div>

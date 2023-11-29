@@ -1,13 +1,18 @@
+import { Helmet } from "react-helmet";
 import { useNavigate } from "react-router-dom";
 
   
 const MyBooking = ({booking,handleDelete}) => {
   const navigate = useNavigate();
-  console.log("tsting" ,"ProviderId", typeof booking.provider);
+  // console.log("tsting" ,"ProviderId", typeof booking.provider);
 
  
   return (
     <div className="flex flex-col max-w-3xl p-6 space-y-4 sm:p-10 bg-gray-50 text-gray-800">
+      <Helmet>
+    <title>Pawrex | MyBookings
+</title>
+  </Helmet> 
 
       <ul className="flex flex-col divide-y divide-gray-300">
           <li className="flex flex-col py-6 sm:flex-row sm:justify-between" >

@@ -1,4 +1,5 @@
 
+import { Helmet } from 'react-helmet';
 import Banner from '../components/Banner';
 import Marquie from '../components/Marquie';
 import ReviewsSlider from '../components/ReviewsSlider';
@@ -10,6 +11,10 @@ import TopServices from '../components/TopServices';
 const Home = () => {
     return (
         <div className='container mx-auto'>
+             <Helmet>
+    <title>Pawrex | Home
+</title>
+  </Helmet> 
 
             <Marquie></Marquie>
             <Banner></Banner>

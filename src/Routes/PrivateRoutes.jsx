@@ -14,7 +14,7 @@ const PrivateRoutes = ({children}) => {
         return <div className="flex justify-center items-center h-screen">
             <Button color="gray">
                 <Spinner aria-label="Alternate spinner button example" size="sm" />
-                <span className="pl-3 text-9xl text-teal-500">Loading...</span>
+                <span className="pl-3 md:text-9xl text-teal-500">Loading...</span>
             </Button>
         </div>
 

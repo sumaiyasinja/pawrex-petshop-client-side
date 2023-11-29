@@ -4,6 +4,7 @@ import { AuthContext } from "../provider/AuthProvider";
 import toast, { Toaster } from "react-hot-toast";
 import { updateProfile } from "firebase/auth";
 import { auth } from "../firebase/firebase.config"
+import { Helmet } from "react-helmet";
 
 const Register = () => {
   const { createUserWithEmail } = useContext(AuthContext);
@@ -53,6 +54,10 @@ const Register = () => {
   return (
     <div className="container mx-auto flex items-center justify-center">
       <Toaster />
+      <Helmet>
+    <title>Pawrex | Register
+</title>
+  </Helmet> 
       <div className="wrapper">
         <div className="form signup">
           <header>Sign up</header>

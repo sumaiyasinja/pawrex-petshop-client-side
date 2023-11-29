@@ -6,6 +6,7 @@ import toast, { Toaster } from "react-hot-toast";
 import { useLoaderData } from "react-router-dom";
 import { AuthContext } from "../provider/AuthProvider";
 import Swal from "sweetalert2";
+import { Helmet } from "react-helmet";
 
 const UpdateService = ({ _id }) => {
 
@@ -75,6 +76,10 @@ const UpdateService = ({ _id }) => {
   return (
     <section className="bg-base-200 dark:bg-gray-900 pt-14">
       <Toaster />
+      <Helmet>
+    <title>Pawrex | Update
+</title>
+  </Helmet> 
       <div className="py-8 px-4 mx-auto max-w-2xl lg:py-6">
         <h2 className="mb-4 text-4xl font-bold text-gray-900 dark:text-white py-2">
           Update a new service
