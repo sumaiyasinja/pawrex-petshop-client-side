@@ -1,6 +1,5 @@
-                                 # website_Name: Pawrex pet caring shop
-<h2></h2>
-
+                                 
+# Website Name: Pawrex pet caring shop
 [PawRex-live](https://assignment11-70459.web.app) <br>
 [Server-site](https://github.com/sumaiyasinja/pawrex-petshop-server-side)
 
