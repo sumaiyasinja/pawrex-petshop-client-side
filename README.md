@@ -1,7 +1,8 @@
                                  #website_Name: Pawrex pet caring shop
 <h2></h2>
 
-[PawRex](https://assignment11-70459.web.app)
+[PawRex-live](https://assignment11-70459.web.app) <br>
+[Server-site](https://github.com/sumaiyasinja/pawrex-petshop-server-side)
 
 ## Authors
 
